@@ -11,17 +11,14 @@
             "id": "6331428d15d8eac3",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Freelance/Qhare/graph.canvas",
-                "viewState": {
-                  "x": 980,
-                  "y": 440,
-                  "zoom": -0.8843169038724882
-                }
+                "file": "Freelance/Qhare/Architecture.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "graph"
+              "icon": "lucide-file",
+              "title": "Architecture"
             }
           }
         ]
@@ -97,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Freelance/Qhare/graph.canvas",
+                "file": "Freelance/Qhare/Architecture.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for graph"
+              "title": "Backlinks for Architecture"
             }
           },
           {
@@ -116,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Freelance/Qhare/graph.canvas",
+                "file": "Freelance/Qhare/Architecture.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from graph"
+              "title": "Outgoing links from Architecture"
             }
           },
           {
@@ -159,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Freelance/Qhare/graph.canvas",
+                "file": "Freelance/Qhare/Architecture.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of graph"
+              "title": "Outline of Architecture"
             }
           }
         ]
@@ -189,11 +186,11 @@
   },
   "active": "6331428d15d8eac3",
   "lastOpenFiles": [
+    "Freelance/Qhare/graph.canvas",
     "Freelance/Qhare/Architecture.md",
     "Freelance/Qhare/Qhare - RSH Digital.md",
     "Architecture.md",
     "Freelance/Qhare - RSH Digital.md",
-    "Freelance/Qhare/graph.canvas",
     "Freelance/Qhare",
     "Home.md",
     "Untitled.canvas",

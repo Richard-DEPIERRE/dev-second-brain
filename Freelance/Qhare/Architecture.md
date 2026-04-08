@@ -7,7 +7,7 @@ tool: graphify + manual Dart analysis
 
 # Qhare Mobile — Architecture Graph
 
-> Flutter CRM for energy renovation salespeople. Multi-tenant (per régie), dual B2C/B2B mode, French subsidy logic (MPR, CEE primes).
+> Flutter CRM for energy renovation salespeople. Multi-tenant (per régie), dual B2C/B2B mode, French subsidy logic (MPR, CEE primes)
 > Code: `~/freelance/qhare_mobile`
 
 ---
