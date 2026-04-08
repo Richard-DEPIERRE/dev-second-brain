@@ -11,14 +11,17 @@
             "id": "6331428d15d8eac3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
-                "mode": "source",
-                "source": false
+                "file": "Freelance/Qhare/graph.canvas",
+                "viewState": {
+                  "x": 980,
+                  "y": 440,
+                  "zoom": -0.8843169038724882
+                }
               },
-              "icon": "lucide-file",
-              "title": "2026-04-08-vm-recovery"
+              "icon": "lucide-layout-dashboard",
+              "title": "graph"
             }
           }
         ]
@@ -94,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/graph.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +107,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-04-08-vm-recovery"
+              "title": "Backlinks for graph"
             }
           },
           {
@@ -113,12 +116,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/graph.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2026-04-08-vm-recovery"
+              "title": "Outgoing links from graph"
             }
           },
           {
@@ -156,13 +159,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/graph.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-04-08-vm-recovery"
+              "title": "Outline of graph"
             }
           }
         ]
@@ -180,13 +183,30 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "6331428d15d8eac3",
   "lastOpenFiles": [
-    "Projects/Freeze My Mac.md",
+    "Freelance/Qhare/Architecture.md",
+    "Freelance/Qhare/Qhare - RSH Digital.md",
+    "Architecture.md",
+    "Freelance/Qhare - RSH Digital.md",
+    "Freelance/Qhare/graph.canvas",
+    "Freelance/Qhare",
+    "Home.md",
+    "Untitled.canvas",
+    "Homelab/Overview.md",
+    "Homelab/Services/Infrastructure.md",
+    "Homelab/Services/Paracord.md",
+    "Homelab/Services/Navidrome.md",
+    "Homelab/Services/Servarr.md",
+    "Homelab/Services/Jellyfin.md",
+    "Homelab/Services",
+    "Homelab/Services.md",
     "Homelab/Logs/2026-04-08-vm-recovery.md",
+    "Projects/Freeze My Mac.md",
     "Homelab/Logs",
     "Projects/Paracord.md",
     "Projects/Paradou Bot.md",
@@ -194,11 +214,7 @@
     "Projects/Uichaa Player.md",
     "Freelance/Booklink.md",
     "Freelance/AquaGymFit.md",
-    "Homelab/Overview.md",
-    "Homelab/Services.md",
-    "Home.md",
     "Freelance/Horyond Agency.md",
-    "Freelance/Qhare - RSH Digital.md",
     "Welcome.md",
     "Freelance/Archive/80BucksAgency.md",
     "Freelance/Archive/Sonarmen.md",

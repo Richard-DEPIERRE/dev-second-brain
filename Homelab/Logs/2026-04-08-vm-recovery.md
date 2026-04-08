@@ -1,7 +1,7 @@
 ---
 date: 2026-04-08
 type: incident-log
-status: partially-resolved
+status: resolved
 severity: high
 tags: [proxmox, zfs, docker, cifs]
 ---
@@ -61,53 +61,46 @@ echo 1 > /sys/module/zfs/parameters/zfs_scrub_min_time_ms
 ```
 The `zpool scrub -p tank` (proper pause) could not complete — Proxmox SSH too slow due to I/O load.
 
-## Current State (end of session)
+## Final State (fully resolved)
 
 | Component | Status |
 |-----------|--------|
 | servarr-vm (101) | ✅ Running (192.168.1.27) |
-| /dev/zvol/ symlink | ✅ Restored |
+| /dev/zvol/ symlink | ✅ Restored (permanent fix via systemd service) |
 | zfs-zvol-udev.service | ✅ Installed, enabled |
-| tank pool scrub | ⚠️ Still running, consuming I/O |
-| /data CIFS mount (VM→CT) | ❌ Unresponsive due to scrub I/O |
-| Portainer-managed containers | ❌ Cannot start (depend on /data/compose/*) |
-| Jellyfin, Navidrome, Sonarr, Radarr, Lidarr, Bazarr | ❌ Exited, waiting for /data |
+| tank pool scrub | ✅ Paused (`zpool scrub -p tank`) |
+| /data CIFS mount (VM→CT) | ✅ Healthy |
+| Portainer-managed containers | ✅ All running |
+| Jellyfin, Navidrome, Sonarr, Radarr, Lidarr, Bazarr | ✅ Up |
+| music-history-db | ✅ Healthy (stale postmaster.pid removed) |
 
-## What Needs To Happen Next
+## Resolution (end of session)
 
-### Step 1 — Stop the scrub (manual action required)
-Option A (GUI): https://proxmox.richarddepierre.com → Storage → `tank` → Stop Scrub  
-Option B (CLI, when Proxmox SSH is responsive):
+### Scrub paused ✅
+After force reboot of the Proxmox host, SSH became responsive again and:
 ```bash
-ssh proxmox 'zpool scrub -p tank'
-# or to stop entirely:
-ssh proxmox 'zpool scrub -s tank'
+ssh proxmox 'zpool scrub -p tank'  # → "scrub_paused" ✅
 ```
 
-### Step 2 — Verify /data is accessible
+### All containers auto-recovered ✅
+With scrub paused, CIFS mount became healthy and all `restart: unless-stopped` containers came back automatically within ~3 minutes of VM boot.
+
+### music-history-db fixed ✅
+Was crash-looping with `FATAL: bogus data in lock file "postmaster.pid"` — stale PID file from unclean shutdown. Fixed by:
 ```bash
-ssh servarrct 'ls /data/compose/ | head -5'
+docker stop music-history-db
+docker run --rm -v /home/uichaa/docker/music-history/database/postgres_data:/data alpine rm /data/postmaster.pid
+docker start music-history-db
+# → now healthy
 ```
 
-### Step 3 — Restart failed containers
-Once /data is mounted, the containers should auto-restart (they have `restart: unless-stopped`). If not:
+### Pending — tank pool data errors
+The scrub found **5 data errors** on `tank` (media pool). To investigate after things stabilize:
 ```bash
-ssh ssh.richarddepierre.com
-cd /data/compose/17 && docker compose up -d  # jellyfin
-cd /data/compose/29 && docker compose up -d  # navidrome
-cd /data/compose/16 && docker compose up -d  # sonarr/radarr/lidarr/bazarr
-cd /data/compose/31 && docker compose up -d  # music-history
-docker start vpn-prowlarr-1 vpn-qbittorrent-1
+ssh proxmox 'zpool status -v tank'  # see which files are affected
+ssh proxmox 'zpool scrub tank'      # resume scrub when ready
 ```
-
-### Step 4 — Resume scrub (optional, after things stabilize)
-```bash
-ssh proxmox 'zpool scrub tank'
-```
-The scrub found 5 data errors in tank. These are on the `tank` (media) pool, not `vault_small` (OS/VM disks). Check which files are affected:
-```bash
-ssh proxmox 'zpool status -v tank'
-```
+These errors are on media files, not OS/VM disks (`vault_small` is clean).
 
 ## Storage Summary (at time of incident)
 
@@ -145,22 +138,22 @@ VM (VMID 101, 192.168.1.27)
 └── ~/docker/ → local docker stacks (paracord, paradou-bot, portainer, etc.)
 ```
 
-## Containers Status at End of Session
+## Containers Status (updated post-recovery)
 
 | Container | Status | Notes |
 |-----------|--------|-------|
 | gluetun | ✅ healthy | VPN gateway |
 | vaultwarden | ✅ healthy | Password manager |
-| immich | ✅ healthy | Photo backup |
-| portainer | ✅ running | Stack manager |
+| immich (redis/postgres/ml) | ✅ healthy | Photo backup |
+| portainer + agent + dozzle | ✅ running | Stack manager |
 | cloudflared | ✅ running | Tunnel |
 | paradou-bot | ✅ running | Discord bot |
-| paracord-frontend | ✅ running | |
+| paracord-frontend + adminer | ✅ running | |
 | beszel-agent | ✅ running | Stats |
 | music-history-api | ✅ running | |
-| music-history-db | ⚠️ restarting | Exit 1 — DB issue |
-| jellyfin | ❌ exited 128 | Needs /data |
-| navidrome | ❌ exited 255 | Was healthy until VM stopped |
-| sonarr/radarr/lidarr/bazarr | ❌ exited 128 | Need /data/compose |
-| qbittorrent/prowlarr | ❌ exited 255 | Need gluetun health |
-| paracord-backend/postgres/livekit | ❌ exited 255 | Down 4 weeks |
+| music-history-db | ✅ healthy | Fixed: removed stale postmaster.pid |
+| jellyfin + jellyseerr | ✅ running | |
+| navidrome | ✅ running | |
+| sonarr/radarr/lidarr/bazarr | ✅ running | |
+| qbittorrent/prowlarr/nzbget/slskd | ✅ running | Via gluetun VPN |
+| paracord-backend/postgres/livekit | ❌ exited 255 | Down 4+ weeks, unrelated to this incident |

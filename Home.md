@@ -37,9 +37,14 @@ Personal reference for all active and past projects, freelance work, and homelab
 
 | Note | What |
 |------|------|
-| [[Homelab/Overview]] | Hardware, SSH access, ZFS pools, architecture |
-| [[Homelab/Services]] | All services, URLs, compose paths |
-| [[Homelab/Logs/2026-04-08-vm-recovery]] | ⚠️ Incident: VM recovery + tank scrub I/O issue |
+| [[Homelab/Overview]] | Hardware, SSH access, ZFS pools, architecture, current status |
+| [[Homelab/Services]] | All services index + URLs |
+| [[Homelab/Services/Jellyfin]] | Jellyfin + Jellyseerr |
+| [[Homelab/Services/Servarr]] | *arr stack + Gluetun VPN + download clients |
+| [[Homelab/Services/Navidrome]] | Music streaming, Subsonic API |
+| [[Homelab/Services/Infrastructure]] | Portainer, Vaultwarden, Immich, Beszel, Cloudflared, Music History |
+| [[Homelab/Services/Paracord]] | Paracord homelab deploy (backend down) |
+| [[Homelab/Logs/2026-04-08-vm-recovery]] | Incident: VM recovery + tank scrub I/O — resolved |
 
 ---
 
@@ -50,4 +55,4 @@ Personal reference for all active and past projects, freelance work, and homelab
 - Past work + invoices: `/Volumes/SSD Richard/freelance/`
 - Homelab dashboard: `gssh.richarddepierre.com` → [glance](https://glance.richarddepierre.com)
 - Proxmox: `ssh proxmox` (192.168.1.191)
-- VM (servarr): `ssh ssh.richarddepierre.com` ⚠️ currently stopped
+- VM (servarr): `ssh ssh.richarddepierre.com` ✅ running
