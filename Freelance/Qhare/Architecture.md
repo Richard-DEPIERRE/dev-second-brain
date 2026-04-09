@@ -2,8 +2,11 @@
 type: architecture-graph
 project: Qhare Mobile
 generated: 2026-04-09
+updated: 2026-04-10
 tool: graphify + manual Dart analysis
 ---
+
+> **Note (2026-04-10):** The app is undergoing a full refactor (`bigfeature/refactor` branch). Target state: 100% BLoC for all non-trivial state, Flutter build flavors (`dev`/`prod`), English codebase, services with no BuildContext. The diagrams below reflect the **current** architecture; the State Layer section notes the target.
 
 # Qhare Mobile — Architecture Graph
 
@@ -22,8 +25,9 @@ graph TD
         HOME[HomePage]
     end
 
-    subgraph State["State Layer"]
-        BLOC[UserBloc]
+    subgraph State["State Layer (target: BLoC per domain)"]
+        BLOC[UserBloc\n✅ exists]
+        BLOC2[FeatureBlocs\n🔄 being added per domain]
         DB[(SQLite\nuserlistqharesplanning.db)]
         SEC[(FlutterSecureStorage\ntokens · btob · language)]
     end
