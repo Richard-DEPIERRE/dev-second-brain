@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/Qhare - RSH Digital.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-08-vm-recovery"
+              "title": "Qhare - RSH Digital"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/Qhare - RSH Digital.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-04-08-vm-recovery"
+              "title": "Backlinks for Qhare - RSH Digital"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/Qhare - RSH Digital.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2026-04-08-vm-recovery"
+              "title": "Outgoing links from Qhare - RSH Digital"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Homelab/Logs/2026-04-08-vm-recovery.md",
+                "file": "Freelance/Qhare/Qhare - RSH Digital.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-04-08-vm-recovery"
+              "title": "Outline of Qhare - RSH Digital"
             }
           }
         ]
@@ -186,19 +186,19 @@
   },
   "active": "6331428d15d8eac3",
   "lastOpenFiles": [
+    "Freelance/Qhare/Architecture.md",
+    "Homelab/Logs/2026-04-08-vm-recovery.md",
     "Homelab/Services/Jellyfin.md",
     "Homelab/Services/Navidrome.md",
     "Homelab/Services/Paracord.md",
     "Homelab/Services/Infrastructure.md",
     "Homelab/Overview.md",
     "Homelab/Services.md",
-    "Homelab/Logs/2026-04-08-vm-recovery.md",
     "Projects/Prism.md",
     "Projects/Paracord.md",
     "Projects/Freeze My Mac.md",
     "Projects/Uichaa Player.md",
     "Projects/Paradou Bot.md",
-    "Freelance/Qhare/Architecture.md",
     "Freelance/Qhare/Qhare - RSH Digital.md",
     "2026-04-09.md",
     "Freelance/Qhare/graph.canvas",

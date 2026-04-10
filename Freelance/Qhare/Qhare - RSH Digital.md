@@ -49,12 +49,22 @@ Also: `Courrier du 2025-11-26.pdf` and `STATUTS Signé-Horyond Agency.pdf` in sa
 
 ## Apps & Environments
 
-| Flavor | App Name | Bundle ID | Distribution |
-|--------|----------|-----------|--------------|
-| `dev` | Qhare Dev | `com.crm-qhare.qhare.dev` | TestFlight (iOS QA) |
-| `prod` | Qhare | `com.crm-qhare.qhare` | App Store + Play Store |
+| Flavor | App Name | iOS Bundle ID | Android applicationId | Env File | Distribution |
+|--------|----------|---------------|-----------------------|----------|--------------|
+| `dev` | Qhare Dev | `com.crm-qhare.qhare.dev` | `com.crm_qhare.qhare.dev` | `.env.development` | TestFlight (iOS QA) |
+| `prod` | Qhare | `com.crm-qhare.qhare` | `com.crm_qhare.qhare` | `.env.production` | App Store + Play Store |
 
-Environment currently switched manually in `lib/utils/env_variable.dart`. Flutter build flavors are a planned refactor item.
+Build flavors fully wired (2026-04). Entry points: `lib/main_dev.dart` and `lib/main_prod.dart`, both calling a shared `bootstrap(Flavor)` in `lib/main_common.dart`. `Environment` is an initialized singleton (`lib/utils/env_variable.dart`) whose `fileName` returns `.env.development` or `.env.production` based on the compile-time `Flavor`. Android uses a single `environment` flavor dimension with `applicationIdSuffix .dev`; iOS uses `Dev.xcconfig`/`Prod.xcconfig` plus `Debug/Release/Profile-{dev,prod}` build configurations and dedicated `dev`/`prod` Xcode schemes.
+
+Commands:
+```bash
+flutter run   --flavor dev  --target lib/main_dev.dart
+flutter run   --flavor prod --target lib/main_prod.dart
+flutter build ipa --flavor prod --target lib/main_prod.dart
+flutter build appbundle --flavor prod --target lib/main_prod.dart
+```
+
+A transitional `myCustomEnv` top-level alias is still exported from `env_variable.dart` so existing service/view call sites compile; removed as part of service cleanup (plan 2/4).
 
 ## Branching Strategy — GitFlow
 
@@ -81,7 +91,7 @@ The full app refactor is tracked on `bigfeature/refactor`. Individual tasks bran
 
 Refactor goals:
 1. **BLoC migration** — 100% BLoC for all non-trivial state (from scattered StatefulWidget)
-2. **Build flavors** — proper `dev`/`prod` Flutter flavor setup (replace manual env switch)
+2. **Build flavors** — ✅ done (2026-04). Two Flutter entry points, per-flavor Android applicationId + app name, iOS xcconfigs + schemes, Environment singleton initialized from Flavor enum.
 3. **English codebase** — all variable/method/class names in English (UI stays French/Spanish via l10n)
 4. **Service cleanup** — remove BuildContext from services; error handling in BLoC/widgets
 
