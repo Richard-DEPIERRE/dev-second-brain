@@ -64,7 +64,7 @@ flutter build ipa --flavor prod --target lib/main_prod.dart
 flutter build appbundle --flavor prod --target lib/main_prod.dart
 ```
 
-A transitional `myCustomEnv` top-level alias is still exported from `env_variable.dart` so existing service/view call sites compile; removed as part of service cleanup (plan 2/4).
+Service cleanup complete (2026-04). `myCustomEnv` alias removed — all call sites use `Environment.instance` directly. All service classes now have zero `BuildContext` parameters; 401 auth failures use `Get.offAllNamed('/login')` inside `DisconnectUser().disconnect(...)`. View callers no longer pass `context` to any service method.
 
 ## Branching Strategy — GitFlow
 
@@ -93,7 +93,7 @@ Refactor goals:
 1. **BLoC migration** — 100% BLoC for all non-trivial state (from scattered StatefulWidget)
 2. **Build flavors** — ✅ done (2026-04). Two Flutter entry points, per-flavor Android applicationId + app name, iOS xcconfigs + schemes, Environment singleton initialized from Flavor enum.
 3. **English codebase** — all variable/method/class names in English (UI stays French/Spanish via l10n)
-4. **Service cleanup** — remove BuildContext from services; error handling in BLoC/widgets
+4. **Service cleanup** — ✅ done (2026-04). Zero `BuildContext` in any service. `myCustomEnv` alias removed. Services navigate via `Get.offAllNamed('/login')` on 401.
 
 ## Development Conventions
 
