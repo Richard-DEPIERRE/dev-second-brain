@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Freelance/Qhare/Architecture.md",
+                "file": "Homelab/Services/Jellyfin.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Architecture"
+              "title": "Jellyfin"
             }
           }
         ]
@@ -186,20 +186,21 @@
   },
   "active": "6331428d15d8eac3",
   "lastOpenFiles": [
+    "Homelab/Logs/2026-04-08-vm-recovery.md",
+    "Homelab/Services/Infrastructure.md",
+    "Homelab/Services/Servarr.md",
+    "Homelab/Services/Paracord.md",
+    "Homelab/Services/Navidrome.md",
     "Freelance/Qhare/Qhare - RSH Digital.md",
     "Freelance/Qhare/Architecture.md",
-    "Homelab/Logs/2026-04-08-vm-recovery.md",
+    "Projects/Paracord.md",
+    "Projects/Paradou Bot.md",
+    "Projects/Prism.md",
+    "Projects/Freeze My Mac.md",
     "Homelab/Services/Jellyfin.md",
-    "Homelab/Services/Navidrome.md",
-    "Homelab/Services/Paracord.md",
-    "Homelab/Services/Infrastructure.md",
     "Homelab/Overview.md",
     "Homelab/Services.md",
-    "Projects/Prism.md",
-    "Projects/Paracord.md",
-    "Projects/Freeze My Mac.md",
     "Projects/Uichaa Player.md",
-    "Projects/Paradou Bot.md",
     "2026-04-09.md",
     "Freelance/Qhare/graph.canvas",
     "Architecture.md",
@@ -207,7 +208,6 @@
     "Freelance/Qhare",
     "Home.md",
     "Untitled.canvas",
-    "Homelab/Services/Servarr.md",
     "Homelab/Services",
     "Homelab/Logs",
     "Freelance/Booklink.md",

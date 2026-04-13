@@ -63,16 +63,16 @@ The `zpool scrub -p tank` (proper pause) could not complete — Proxmox SSH too 
 
 ## Final State (fully resolved)
 
-| Component | Status |
-|-----------|--------|
-| servarr-vm (101) | ✅ Running (192.168.1.27) |
-| /dev/zvol/ symlink | ✅ Restored (permanent fix via systemd service) |
-| zfs-zvol-udev.service | ✅ Installed, enabled |
-| tank pool scrub | ✅ Paused (`zpool scrub -p tank`) |
-| /data CIFS mount (VM→CT) | ✅ Healthy |
-| Portainer-managed containers | ✅ All running |
-| Jellyfin, Navidrome, Sonarr, Radarr, Lidarr, Bazarr | ✅ Up |
-| music-history-db | ✅ Healthy (stale postmaster.pid removed) |
+| Component                                           | Status                                         |
+| --------------------------------------------------- | ---------------------------------------------- |
+| servarr-vm (101)                                    | ✅ Running (192.168.1.27)                       |
+| /dev/zvol/ symlink                                  | ✅ Restored (permanent fix via systemd service) |
+| zfs-zvol-udev.service                               | ✅ Installed, enabled                           |
+| tank pool scrub                                     | ✅ Paused (`zpool scrub -p tank`)               |
+| /data CIFS mount (VM→CT)                            | ✅ Healthy                                      |
+| Portainer-managed containers                        | ✅ All running                                  |
+| Jellyfin, Navidrome, Sonarr, Radarr, Lidarr, Bazarr | ✅ Up                                           |
+| music-history-db                                    | ✅ Healthy (stale postmaster.pid removed)       |
 
 ## Resolution (end of session)
 
