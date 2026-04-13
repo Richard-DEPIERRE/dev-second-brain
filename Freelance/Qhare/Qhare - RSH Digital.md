@@ -90,9 +90,9 @@ release/<version>    → release prep (develop → master + develop)
 The full app refactor is tracked on `bigfeature/refactor`. Individual tasks branch off it as `feature/<task>` and PR back into it. Final merge → `develop` when all tasks complete.
 
 Refactor goals:
-1. **BLoC migration** — 100% BLoC for all non-trivial state (from scattered StatefulWidget)
+1. **BLoC migration** — 🟡 in progress. Phase 1 complete (2026-04-12): SettingsBloc, LoginBloc, SplashBloc, ChangePasswordBloc, CommentBloc, DealFormBloc, ModifyInformationBloc, RepresentativeFormBloc, SubcontractorFormBloc. All BLoCs injected via constructor params, views wired with `BlocProvider` + `MultiBlocListener` + narrow `BlocBuilder`. ~40 screens still to migrate.
 2. **Build flavors** — ✅ done (2026-04). Two Flutter entry points, per-flavor Android applicationId + app name, iOS xcconfigs + schemes, Environment singleton initialized from Flavor enum.
-3. **English codebase** — all variable/method/class names in English (UI stays French/Spanish via l10n)
+3. **English codebase** — ✅ done (2026-04). All variable/method/class names in English (UI stays French/Spanish via l10n).
 4. **Service cleanup** — ✅ done (2026-04). Zero `BuildContext` in any service. `myCustomEnv` alias removed. Services navigate via `Get.offAllNamed('/login')` on 401.
 
 ## Development Conventions

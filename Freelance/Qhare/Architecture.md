@@ -27,7 +27,7 @@ graph TD
 
     subgraph State["State Layer (target: BLoC per domain)"]
         BLOC[UserBloc\n✅ exists]
-        BLOC2[FeatureBlocs\n🔄 being added per domain]
+        BLOC2[SettingsBloc · LoginBloc · SplashBloc\nChangePasswordBloc · CommentBloc\nDealFormBloc · ModifyInformationBloc\nRepresentativeFormBloc · SubcontractorFormBloc\n✅ Phase 1 complete 2026-04-12]
         DB[(SQLite\nuserlistqharesplanning.db)]
         SEC[(FlutterSecureStorage\ntokens · btob · language)]
     end
